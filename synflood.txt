@@ -1,0 +1,8 @@
+syn flooding
+
+by using msfconsole
+
+>msfconsole
+>search synflood
+>use auxillary/dos/tcp/synflood
+>show options

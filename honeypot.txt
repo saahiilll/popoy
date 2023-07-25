@@ -1,0 +1,47 @@
+////honeypot///
+
+*virtual env*
+install python 3.8
+
+1.sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython3-dev python3-minimal authbind virtualenv
+
+2.sudo adduser --disabled-password cowrie
+(created a non root user)
+
+3.configure authbind
+sudo touch /etc/authbind/byport/22
+sudo chown cowrie:cowrie /etc/authbind/byport/22
+sudo chmod 777 /etc/authbind/byport/22
+
+now create a virtual env
+sudo su - cowrie
+pwd-->/home/cowrie/
+
+
+4.install cowrie
+install cowrie
+cd cowrie
+
+virtualenv --python=python3.8 john-env(name of virtual environment)
+if you want to go under john-env
+-->source john-env/bin/activate
+                   -->deactivate(for exit but dont exit)
+pip install --upgrade pip
+pip install --upgrade -r requirements.txt(dependencies for cowrie)
+cp etc/cowrie.cfg.dist etc/cowrie.cfg
+nano etc/cowrie.cfg
+585
+listen_endpoints = tcp:22(change it to 22)
+
+nano etc/userdb.txt
+root:x:!123456(it will not accept the password of root user)
+root:x:*(it will accept all password for root user except 123456)
+exit
+
+bin/cowrie start 
+bin/cowrie status
+
+take a attacker machine==>ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@192.168.1.117(honeypot ip)
+
+honeypot machine==>using shuhari user--> sudo tail -f /home/cowrie/cowrie/var/log/cowrie/cowrie.log
+

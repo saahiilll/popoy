@@ -1,0 +1,40 @@
+sudo apt install adb
+
+and ping the mobile
+ss -ant
+
+adb devices(it starts)
+adb devices
+
+
+adb connect (ip of the device)(where you want to connect)
+
+adb devices (you will get the connected device)
+
+adb disconnect (it will disconnect from all the device)
+
+
+if you want to open shell of android --->adb shell
+
+adb shell ls -l /mnt/sdcard   (if you want to open up the directory without going to shell)
+
+adb push file.txt /sdcard/file.txt(for pushing file into android device)
+adb shell ls -l /sdcard/  (to check the data is pushed or not)
+
+
+
+if you want to pull any file from the mobile
+adb pull /sdcard/file.txt
+
+
+
+adb shell "pm list packages"
+(if you want to check for which apps you have installed)
+
+adb shell "pm list packages" | grep yahoo  (for particular application)
+
+
+
+
+
+

