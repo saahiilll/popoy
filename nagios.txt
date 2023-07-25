@@ -1,0 +1,63 @@
+sudo apt update && sudo apt upgrade
+sudo apt install autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd-dev
+sudo apt install libmcrypt-dev libssl-dev bc gawk dc build-essential libnet-snmp-perl gettext
+
+cd /usr/src/
+sudo wget https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.3.tar.gz
+
+sudo tar zxf nagios-*.tar.gz
+
+cd nagioscore-nagios-*/
+
+
+
+sudo ./configure --with-httpd-conf=/etc/apache2/sites-enabled
+
+sudo make all
+
+sudo make install-groups-users
+
+sudo usermod -a -G nagios www-data
+
+sudo make install
+
+sudo make install-commandmode
+
+sudo make install-config
+
+sudo make install-webconf
+
+sudo a2enmod rewrite
+sudo a2enmod cgi
+
+
+sudo make install-daemoninit
+
+sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+
+sudo systemctl restart apache2
+
+sudo ufw allow Apache
+
+
+
+cd /usr/src/
+sudo wget -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
+
+
+sudo tar zxf nagios-plugins.tar.gz
+
+cd nagios-plugins-release-2.2.1
+
+sudo ./tools/setup
+sudo ./configure
+sudo make
+sudo make install
+
+sudo systemctl start nagios
+
+
+sudo systemctl status nagios
+
+http(s)://your_domain_or_ip_address/nagios
