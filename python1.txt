@@ -1,0 +1,249 @@
+//file input output//
+
+1.>>>my_var = open('one.txt')
+>>>my_var.closed
+>>>false
+
+>>>my_var.close()
+>>>my_var.closed
+>>>true
+
+>>>my_var.open()
+>>>my_var.closed
+>>.false
+
+>>>for var1 in my_var:
+	print(var1, end='')
+
+end=''for not getting extra line in printing
+
+
+and closed the file after printing
+
+>>>my_var.close()
+>>>my_var.closed
+>>>true
+
+
+>>>my_var.tell()
+(above command shows the characters in the file )
+
+>>>my_var.seek(0)
+
+(if you use above command then you dont have to exit for loop )
+
+
+
+/////////////////////////////////////////////////////////////////////////
+file input output							/
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import sys
+def print_file(filename):
+	fh_var = open(filename)
+		while True:
+			line = fh_var.readline()
+			#if end of file reached, break
+			if not line:
+				break
+		fh_var.close()
+def main():
+	print_file(sys.argv[1])
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+import sys
+def print_file(filename):
+	fh_var = open(filename)
+	var1 = fh_var.readlines()
+	print('-'* 20)
+	for var2 in var1:
+		print(var2,end='')
+	fh_var.close()
+def main():
+	print_file(sys.argv[1])
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+how to write in a file
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import sys
+def write_file(filename):
+	fh_var = open(filename, mode='w')
+	for val in range(1,6):
+		fh_var.write(str(val) + '\n')
+	fh_var.close()
+	print(""file operation over)
+
+def main():
+	write_file(sys.argv[1])
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+socket programming in python
+
+two machine needed server and client
+* The socket module*
+deb1 server
+deb2 client
+
+(we have to create a server socket)
+
+socket method takes three parameter
+socket (socket_family, socket_type, protocol=0)
+the socket()method takes three arguments:
+1.the social family is either
+	AF_UNIX or AF_INET
+2.for internet based application,it is typicall AF_INET
+3.the socket type is either
+	*SOCK_STREAM (for tcp)
+	*SOCK_DGRAM (for udp)
+
+
+///HOW TO CREATE A SOCKET
+>>>dir()
+>>>import socket
+>>>dir()
+>>>TCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+>>>
+
+///BIND THE SOCKET
+bind takes only one argument which is tuple in parenthesis
+
+>>>TCPSocket.bind(("0.0.0.0", 8000))
+0.0.0.0 means accept from anywhere
+8000--> is a port where we have to listen
+
+/////listen for connestions//
+>>>TCPSocket.listen()
+it will listen the port number 8000 after giving above command
+
+then check it by typing ss -ant in another instance
+
+/////////accept the connection////
+>>>(ClientSocket, (ip,port)) = TCPSocket.accept()
+>>>u will not get >>> 
+then go the client machine and install telnet 
+
+telnet (server ip) port(8000)
+
+then go to server machine-->
+>>>print(ip)
+>>>print(port)
+
+///if u want to send data to client machine throuch client socket///
+>>>ClientSocket.send(b"\nMessage\n")
+(b is for binary)
+check on the client machine
+
+///if you want to receive data from client then type//
+>>>data = ClientSocket.recv(2048)
+go to the client machine and type the data
+
+now come to server
+>>>print(data)
+
+//////now if you want to close the client connection you can use following //
+>>>ClientSocket.close()
+///if you want to close the socket//
+>>>TCPSocket.close()
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FILESYSTEM USING PYTHON
+
+*make a program in python to print current working directory*
+
+
+import os
+def main():
+	print("current working directory is (Abs Path):", os.getcwd())
+
+if __name__== '__main__':
+	main()
+
+-----------------------------------------------------------------------
+
+*list the content of the directory with path*
+
+import os, sys
+def main():
+	dir = sys.argv[]
+	contents = os.listdir(dir)
+	print(contents)
+	for elem in contents:
+		f_with_path = os.path.join(dir, elem)
+		print(f-with_path)
+
+if __name__== '__main__':
+	main()
+
+
+./p1.py wf/(you will get relative path)
+./p1.py /home/shuhari/wf/ (you will get absolute path)
+---------------------------------------------------------
+
+*list the content of the directory with absolute*
+
+import os, sys
+def main():
+	dir = sys.argv[]
+	contents = os.listdir(dir)
+	print(contents)
+	for elem in contents:
+		f_with_path = os.path.join(dir, elem)
+		f_with_apath = os.path.abspath(if_with_path)
+		print(f_with_apath)
+
+if __name__== '__main__':
+	main()
+
+
+./p1.py wf/
+
+-------------------------------------------------------------------
+
+
+*to check if a file or folder is exist*
+
+>>>import os
+>>>os.path.exists('wf/dir1')
+>>>true
+
+>>>os.path.exists('wf/file1')
+>>>true
+.........................................................................
+
+*to check if an object is file or folder*
+
+>>>os.path.isfile('wf/file1')
+>>>true
+>>>os.path.isdir('wf/dir1')
+>>>true
+
+>>>os.path.isfile('wf/dir1')
+>>>fslse
+>>>os.path.isdir('wf/file1')
+>>>false
+
+
+..................................................................................
+*how to create a directory*
+
+>>>os.path.exists('wf/temp')
+>>>false
+>>>os.mkdir('wf/temp')
+>>>os.path.exists('wf/temp')
+>>>true
+
+
+
+.............................................................................
+
+*to create a child directories under directory*
+
+>>>os.makedirs('wf/temp1/temp2/temp3')

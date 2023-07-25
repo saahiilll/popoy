@@ -1,0 +1,277 @@
+#!/usr/bin/python3
+class Emp:
+	#Class Attribute
+
+	EmpDomain = 'shuhari.local'
+	
+	#initializer / instance attributes
+	
+	def __init__(self,var1,var2,var3):
+		self.EmpName = var1
+		self.EmpAge = var2
+		self.EmpDept = var3
+
+	def intro(self):
+		return "{} is {} years old".format(self.Empname, self.Employee)
+	def background_verification of {} was completed in the month of {}".format(self.Empname, ver_date)
+def main():
+	#initiate the emp class to object
+
+	t1 = Emp("Tinku", 25, "IT")
+	t2 = Emp("Gabbar", 20, "is")
+
+	#access the instance attribute
+	print("{} is {} and works in the {} department of {}".format(t1.EmpName, t1.EmpDept, t1.EmpDomain))
+	print("{} is {} and works in the {} department of {}".format(t2.EmpName, t2.EmpDept, t2.EmpDomain))
+
+	#call our instance methods
+	print(t1.intro())
+	print(t1.background_verification('oct 2022'))
+
+
+if __name__== '__main__':
+	main()
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//overriding in oops concepts//
+
+pass, break and continue 
+
+//////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+INSTALL MAIL SERVER
+POSTFIX ,DOVECOT, RAINLOOP
+MTA
+MDA
+MUA
+
+>sudo apt install postfix
+
+system mail name:
+shuharilabs.local
+
+>ping shuharilabs.local
+>ping mail.shuharilabs.local
+
+>sudo nano /etc/postfix/main.cf
+mynetworks = 127.0.0.1/8, 192.168.80.0/24
+add some line-->server
+home_mailbox = Maildir/
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain = $myhostname
+smtpd_recipient_restrictions = permit_mynetworks,permit_auth_destination,permit_sasl_authenticated,reject
+
+
+
+#check for error
+>sudo postconf -n
+>sudo systemctl restart postfix
+
+#INSTALL DOVECOT
+>sudo apt install dovecot-core dovcot-imapd
+>sudo nano /etc/dovecot/dovecot.conf
+>listen line uncomment
+
+>sudo nano /etc/dovecot/conf.d/10-auth.conf
+uncomment following line and add 
+disable_plaintext_auth = no
+auth_mechanisms = plain login(add login)
+
+
+>sudo nano /etc/dovecot/conf.d/10-mail.conf
+mail_location = maildir:~/Maildir
+
+>sudo nano /etc/dovecot/conf.d/10-master.conf
+
+search smtp-auth
+#Postfix smtp-auth
+unix_listner /var/spool/postfix/private/auth {
+mode = 0666
+user = postfix
+group = postfix
+
+}
+
+
+>ss -ant
+>sudo systemctl restart dovecot
+>ss -ant
+
+
+
+
+
+//we hava to create a two user for exhachanging mails//
+sudo adduser one
+sudo adduser two
+
+
+>sudo apt install apache2 php7.3 libapache2-mod-php7.3 php7.3-curl php7.3-xml unzip
+
+>sudo rm /var/www/html/index.html
+>sudo unzip rainloop/rainloop.zip(your path of rainloop) -d /var/www/html/
+
+>sudo chown www-data:www-data /var/www/html/data
+
+now go to browser
+username-->admin
+password-->12345
+
+domain --
+add domain--
+name shuharilabs.local
+
+IMAP
+server 127.0.0.1:143
+
+SMTP
+server 127.0.0.1:25
+
+
+open second tab-->
+192.168.80.ip
+user1@shuharilabs.local
+
+open third tab-->
+user2@shuharilabs.local
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+intruder
+
+base52 encode
+
+clear symbol
+
+select and mark it by  $ add 1
+select payload 
+add rules
+prefix tiger
+base64 console encrypt
+
+
+payload encoding remove = symbol
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+>>>myre.find1('\d\s\d\s\d','find 1 2 3 through RE')
+1 2 3
+start:5
+end:10
+
+>>>myre.find1('\d\s\d\s\d','find 1 2  3 through RE')
+not found
+
+>>>myre.find1('\d\s+\d\s+\d','find 1 2  3 through RE')
+>>>1 2  3
+start:5
+end:11
+
+
+.....................................................................................
+
+>>>myre.find1(r'Lac?k?h','the cost is 1 Lakh')
+Lakh
+start:14
+end:18
+
+>>>myre.find1(r'Lac?k?h?','The cost is 1 Lac')
+Lac
+start:14
+end:17
+.........................................................................
+
+
+
+
+myre.find1(r'\d{4}','Find first four from 12345678')
+1234
+start:21
+end:25
+
+
+myre.find1(r'\d{3,}','Find first four from 12,)
+>>>not found
+
+myre.find1(r'\d{3,}','Find first four from 123')
+>>>123
+start:21
+end:24
+
+myre.find1(r'\d{3,}','Find first four from 1234567')
+>>>1234567
+start:21
+end:28
+
+
+
+myre.find1(r'\d{3,5}','Find first four from 1234567')
+>>>12345
+start:21
+end:26
+
+
+
+...................................................................................
+
+
+
+myre.find1(r'\w@\w','My ID is fn.ln@gmail.com bla bla')
+n@g
+start:13
+end:16
+
+
+myre.find1(r'[\w.]@\w','My ID is fn.ln@gmail.com bla bla')
+
+n@w
+start:13
+end:16
+
+
+myre.find1(r'[\w.]+@\w','My ID is fn.ln@gmail.com bla bla')
+fn.ln@g
+start:9
+end:16
+
+
+
+....................................................................................
+>>>import re
+
+>>>re.findall(r'[\w.]+@[\w.]+','My ID is fn.ln@gmail.com bla ln.fn@gmail.com bla bla')
+
+['fn.ln@gmail.com', 'ln.fn@gmail.com']

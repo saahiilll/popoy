@@ -1,0 +1,231 @@
+................................................................
+
+*to traverse in directory and checks the file*
+
+
+import os, sys
+
+def Traverse(dir):
+	for root, dirs, filles in os.walk(dir):
+		print(root)
+		print(dirs)
+		print(files)
+		print('*'* 10)
+def main():
+	Traverse(sys.argv[1])
+
+if __name__== '__main__':
+	main()
+
+.................................................................................
+
+
+*copy files*
+shutil-->shell util
+
+>>>import shutil
+>>>spath = '/home/shuhari/pylabs/wf1/dir1/file1'
+>>>dpath = '/home/shuhari/pylabs/wf1/dir2/file2;
+
+>>>shutil.copy(spath,dpath)
+
+...........................................................................................................................................
+
+
+*delete a file*
+>>>import os
+>>>os.remove(dpath)
+
+*delete a empty directory*
+>>>dpath = '/home/shuhari/pylabs/dir2/'
+>>>os.rmdir(dpath)
+
+
+...................................................................................................................................................
+
+*for removing leaf directory if is it empty*
+
+>>>import os
+>>>mypath = 'absolute path'
+>>>os.removedirs(mypath)
+
+
+*for removing parent as well as leaf directory whether it is empty or not it will remove forcefully*
+
+
+>>>import shutil
+>>>shutil.rmtree(absolute path)
+
+
+...........................................................................................................................
+
+*program to checking what permissions user have"
+
+import os, sys
+def main():
+	loc = sys.argv[1]
+	ret = os.access(loc, os.F_OK)
+	print("user is availabe %s" % ret)
+	ret = os.access(loc, os.R_OK)
+	print("read is availabe %s" % ret)
+	ret = os.access(loc, os.W_OK)
+	print("write is availabe %s" % ret)
+	ret = os.access(loc, os.X_OK)
+	print("executable is availabe %s" % ret)
+
+if __name__== '__main__':
+	main()
+-----------------------------------------------------------------------------------------------------------------------------
+
+ms03-026 exploit code
+
+zerodium exploit code
+
+exploit development--->corelan
+
+
+.............................................................................................................................
+
+how to add a web server by using python 
+
+...python3 -m http.server 8000
+
+////////////////////////////////////////////////////////////
+
+
+
+>>>import urllib.request
+>>>url = 'http://ip/file
+>>>uf = urllib.request.urlopen(url)
+>>>uf.read()
+>>>and check it on the web browser
+>>>uf.code
+
+
+
+if u want to see your website header
+>>>print(uf.headers)
+
+//////////////////////////////////////////////////////////////////
+how to find if any code on website get redirected
+
+>>>url = 'http://192.168.1.251/one.php'
+>>> uf = urllib.request.urlopen(url)
+>>>print(url)
+>>>print(uf.geturl())
+
+/////////////////////////////////////////////////////////////////////////
+
+>>>urllib.request.urlretrieve(url)
+
+/////////////////////////////////////////////////////////////////////
+
+
+what is the shortest way to define a class
+
+>>class students:
+	pass
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#!/usr/bin/python3
+class Emp:
+	#Class Attribute
+
+	EmpDomain = 'shuhari.local'
+	
+	#initializer / instance attributes
+	
+	def __init__(self,var1,var2,var3):
+		self.EmpName = var1
+		self.EmpAge = var2
+		self.EmpDept = var3
+def main():
+	#initiate the emp class to object
+
+	t1 = Emp("Tinku", 25, "IT")
+	t2 = Emp("Gabbar", 20, "is")
+
+	#access the instance attribute
+	print("{} is {} and works in the {} department of {}".format(t1.EmpName, t1.EmpDept, t1.EmpDomain))
+	print("{} is {} and works in the {} department of {}".format(t2.EmpName, t2.EmpDept, t2.EmpDomain))
+
+
+if __name__== '__main__':
+	main()
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+import re
+def find1(str1):
+	match = re.search(r'^Ho', str1, flags=re.M)
+	if match:
+		print(match.group())
+	else:
+		print('not found')
+def main():
+	str1 = 'Hello\nHow\nAre\nYou'
+	print(str1)
+	print('*' * 20)
+	find1(str1)
+
+if __name__ == '__main__':
+    main()
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+>>>#[abc] matches a , b or c
+>>>myre.find1(r'[aeiou]','apple')
+a
+starting off set:0
+ending offset:1
+
+
+
+
+>>>myre.find1(r'[aeiou][aeiou]'.'lemon')
+>>>not found
+>>>myre.find1(r'[aeiou].[aeiou]'.'lemon')
+>>>emo
+
+
+
+
+
+
+
+>>>myre.find(r'[d-i]','a')
+>>>not found
+>>>myre.find1(r'[d-i]','e')
+e
+start:0
+end:1
+
+
+
+
+instance attribute and class attribute
+
+
+
+
+
+>>>myre.find1(r'Number: [5]','Number: 8')
+>>>not found
+
+>>>myre.find1(r'Number: [^5]','Number: 8')
+>>>number8
+
+>>>>myre.find1(r'Number: [^5-9]','Number: 8')
+>>>not found
+
+///we can write a regex program to find a valid pan number//
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
