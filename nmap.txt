@@ -1,0 +1,45 @@
+////NMAP//
+for host discovery
+nmap -sn 192.168.1.0/24  (network )
+
+
+(footprinting)
+(scanning host discovery)
+(normal ping)
+(nmap)
+(your script)
+
+*port discovery scan*
+manualy -->telnet 192.168.1.11 80(port)
+
+
+by using NMAP
+nmap 192.168.1.23
+
+
+
+
+
+-sT (full connect scann)(three way handshaking)syn-->syn ack-->ack      (more reliable) (not root user can scan)
+
+-sS (half connect scan)(three way handshaking not complete)syn-->syn ack (less reliable) (not root user cannot scan)
+
+for service or version and ...scanning banner grabbing
+
+nmap -sV 192.168.1.22(ip)
+
+
+for grabbing version server
+telnet  192.168.1.22(ip) 80 (port)
+HEAD / HTTP/1.1
+
+
+
+if the server is properly configure then you will get NOYB
+
+for grabbing the OS use following command
+
+sudo nmap -O 192.168.1.2(ip)
+
+
+cat one.txt | cut -d "|" -f4 > two.txt
