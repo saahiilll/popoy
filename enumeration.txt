@@ -1,0 +1,14 @@
+ENUMERATION
+
+dns
+
+nslookup
+set type=ns
+checkpoint.com
+
+
+server (nameserver of checkpoint)
+ls -d (nameserver)
+//////////////////////////////////////////////////////////////////////
+ip spoofing for ping
+sudo hping3 -a source ip  destn ip
