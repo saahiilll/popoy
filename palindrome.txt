@@ -1,0 +1,23 @@
+def is_palindrome(word):
+    """
+    Checks if a word is a palindrome.
+
+    Parameters:
+        word (str): The word to check.
+
+    Returns:
+        bool: True if the word is a palindrome, False otherwise.
+    """
+    return word == word[::-1]
+
+# Test the function
+print(is_palindrome("moon"))
+print(is_palindrome("level"))
+print(is_palindrome("deified"))
+print(is_palindrome("python"))
+
+
+
+save the command in palind.py file
+give permission chmod +x
+python3 palind.py
