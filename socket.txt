@@ -1,0 +1,67 @@
+socket programming in python
+
+two machine needed server and client
+* The socket module*
+deb1 server
+deb2 client
+
+(we have to create a server socket)
+
+socket method takes three parameter
+socket (socket_family, socket_type, protocol=0)
+the socket()method takes three arguments:
+1.the social family is either
+	AF_UNIX or AF_INET
+2.for internet based application,it is typicall AF_INET
+3.the socket type is either
+	*SOCK_STREAM (for tcp)
+	*SOCK_DGRAM (for udp)
+
+
+///HOW TO CREATE A SOCKET
+>>>dir()
+>>>import socket
+>>>dir()
+>>>TCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+>>>
+
+///BIND THE SOCKET
+bind takes only one argument which is tuple in parenthesis
+
+>>>TCPSocket.bind(("0.0.0.0", 8000))
+0.0.0.0 means accept from anywhere
+8000--> is a port where we have to listen
+
+/////listen for connestions//
+>>>TCPSocket.listen()
+it will listen the port number 8000 after giving above command
+
+then check it by typing ss -ant in another instance
+
+/////////accept the connection////
+>>>(ClientSocket, (ip,port)) = TCPSocket.accept()
+>>>u will not get >>> 
+then go the client machine and install telnet 
+
+telnet (server ip) port(8000)
+
+then go to server machine-->
+>>>print(ip)
+>>>print(port)
+
+///if u want to send data to client machine throuch client socket///
+>>>ClientSocket.send(b"\nMessage\n")
+(b is for binary)
+check on the client machine
+
+///if you want to receive data from client then type//
+>>>data = ClientSocket.recv(2048)
+go to the client machine and type the data
+
+now come to server
+>>>print(data)
+
+//////now if you want to close the client connection you can use following //
+>>>ClientSocket.close()
+///if you want to close the socket//
+>>>TCPSocket.close()
