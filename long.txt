@@ -1,0 +1,26 @@
+def filter_long_words(word_list, n):
+    """
+    Filters a list of words to include only words with lengths greater than n.
+
+    Parameters:
+        word_list (list): List of words.
+        n (int): Minimum word length.
+
+    Returns:
+        list: A new list containing words longer than n characters.
+    """
+    return [word for word in word_list if len(word) > n]
+
+words_list = ["apple", "banana", "grape", "orange", "watermelon", "kiwi", "pomegranate"]
+min_length = 5
+
+filtered_words = filter_long_words(words_list, min_length)
+print(filtered_words)
+
+
+
+
+
+save the code 
+give permission 
+run
